@@ -1,0 +1,122 @@
+#!/bin/bash
+
+NULCL='\033[0m'
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+WHITE='\033[1;37m'
+
+clear
+echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NULCL}"
+sleep 0.2
+echo -e "${RED}║██╗░╔██╗░╔██╗███░╗░╔░███╗████████╗████████╗███╗░░░░██╗╔████████║${NULCL}"
+sleep 0.2
+echo -e "${RED}║██║░║██║░║██║░███╚═╝███░║██╔═════╝██░░░░██║██╔██╗░░██║╚═════╗██║${NULCL}"
+sleep 0.2
+echo -e "${RED}║██║░║██║░║██║░░░█████░░░║████████░████████║██║╚██╗░██║░████████║${NULCL}"
+sleep 0.2
+echo -e "║██╚═╝██╚═╝██║░███╔═╗███░║╚═════██╗██╔══╗██║██║░╚██╗██║╔██═════╝║"
+sleep 0.2
+echo -e "║╗████╔═╗████║███░║░║░███║████████╝██║░░║██║██║░░╚████║╚████████║"
+sleep 0.2
+echo -e "║╚════╝░╚════╝╚═══╝░╚════╝╚══════╝░╚═╝░░╚══╝╚═╝░░░╚═══╝░╚══════╝║"
+sleep 0.2
+echo -e "╚═══════════════════════════════════════════════════════════════╝"
+echo -ne '\n'
+
+CL () {
+if [ -d "/data/data/$PKG" ]; then
+echo -ne '\n'
+echo -ne '\n'
+echo -e "${GREEN}LOGS CLEANER $KLN VERSION HAS BEEN STARTED${NULCL}"
+sleep 1
+echo -ne '\n'
+echo -ne '\n'
+rm -rf /data/data/$PKG/{app*,*cache,databases,files,no_backup} &>/dev/null
+touch /data/data/$PKG/{files,app_crashrecord} &>/dev/null
+chmod -R 000 /data/data/$PKG/{files,app_crashrecord} &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/cache &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/files/TGPA &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/files/cacheFile.txt &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/files/ca-bundle.pem &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/files/login-identifier.txt &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/files/UE4Game/ShadowTrackerExtra/Epic Games &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Intermediate &>/dev/null
+rm -rf /storage/emulated/0/Android/data/$PKG/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/{LightData,Puffer*,Pandora,RoleInfo,TableDatas,MMKV,Logs,UpdateInfo,ImageDownload,SaveGames/*.json} &>/dev/null
+echo -ne "$RED#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#"
+sleep 0.1
+echo -ne "#$NULCL"
+echo -ne '\n'
+echo -ne '\n'
+echo -e "${GREEN}PUBGM $KLN HAS BEEN STARTED✓${NULCL}"
+sleep 1
+else
+echo -e "${RED}PUBGM $KLN NOT INSTALLED!!${NULCL}"
+fi
+}
+
+PS3='Please select your pubgm version : '
+ver=("[GL]" "[KR]" "[VN]" "[TW]" "Exit")
+select opt in "${ver[@]}"
+do
+    case $opt in
+        "[GL]")
+            PKG='com.tencent.ig'
+            KLN='GLOBAL'
+            CL
+            break
+            ;;
+        "[KR]")
+            PKG='com.pubg.krmobile'
+            KLN='KOREA'
+            CL
+            break
+            ;;
+        "[VN]")
+            PKG='com.vng.pubgmobile'
+            KLN='VIETNAM'
+            CL
+            break
+            ;;
+         "[TW]")
+            PKG='com.rekoo.pubgm'
+            KLN='TAIWAN'
+            CL
+            break
+            ;;
+        "Exit")
+            break
+            ;;
+        *) echo "YOU SELECT A NULL TYPE!!";;
+    esac
+done 
